@@ -7,7 +7,7 @@ interface IRoot {
   children: JSX.Element;
 }
 
-export const Root: FC<any> = ({ children }: IRoot): JSX.Element => (
+export const Root: FC<IRoot> = ({ children }): JSX.Element => (
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline/>
