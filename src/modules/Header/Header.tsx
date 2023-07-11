@@ -1,14 +1,15 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Box from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import { Button } from "componetnts";
 import { useScrollById } from "hooks";
+import { EViewBlocks } from "constant";
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
 
 export const Header = () => {
-  const handleClickUsers = useScrollById('users');
-  const handleClickRegister = useScrollById('registration');
+  const handleClickUsers = useScrollById(EViewBlocks.USERS);
+  const handleClickRegister = useScrollById(EViewBlocks.REGISTRATION);
   return (
     <Box
       sx={theme => ( {
@@ -33,7 +34,7 @@ export const Header = () => {
               onClick={handleClickUsers}
             />
             <Button
-              text="Sign Up"
+              text="Sign up"
               onClick={handleClickRegister}
             />
           </Stack>

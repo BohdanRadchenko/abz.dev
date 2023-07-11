@@ -120,26 +120,26 @@ export const theme = createTheme({
           textTransform: 'none',
           position: 'relative',
           boxShadow: 'none',
-          ['&:focus']: {
+          '&:focus': {
             outline: 'none',
           },
-          ['&:active']: {
-            ['&:focus']: {
+          '&:active': {
+            '&:focus': {
               outline: 'none',
             },
           },
-          ['&.MuiButton-disablePointerEvents']: {
+          '&.MuiButton-disablePointerEvents': {
             pointerEvents: 'none',
           },
         },
         containedPrimary: {
           color: buttonContainedPrimaryOnSurfaceDefault,
           backgroundColor: buttonContainedPrimaryDefault,
-          ['&:hover']: {
+          '&:hover': {
             boxShadow: 'none',
             backgroundColor: buttonContainedPrimaryHovered,
           },
-          ['&.Mui-disabled']: {
+          '&.Mui-disabled': {
             color: buttonContainedPrimaryOnSurfaceDisabled,
             backgroundColor: buttonContainedPrimaryDisabled,
           },

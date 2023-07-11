@@ -1,17 +1,20 @@
-import React from 'react';
-import { Typography } from "@mui/material";
-import { Header } from "../modules";
+import React, { useEffect } from 'react';
+import { Banner, Header } from "modules";
+import { Users } from "../modules/Users/Users";
+import { useStores } from "../hooks";
 
 export const App = () => {
+  const { rootStore: { positionStore: { getPositions } } } = useStores();
+
+  useEffect(() => {
+    getPositions();
+  }, [getPositions]);
+
   return (
-    <div>
+    <>
       <Header/>
-      <Typography variant="title">
-        Whereas disregard and contempt for human rights have resulted
-      </Typography>
-      <Typography>
-        Whereas disregard and contempt for human rights have resulted
-      </Typography>
-    </div>
+      <Banner/>
+      <Users/>
+    </>
   )
 }

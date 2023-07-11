@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
+import { Typography } from "@mui/material";
 
 interface IButton extends ButtonProps {
   text?: string;
@@ -8,7 +9,9 @@ interface IButton extends ButtonProps {
 export const Button: FC<IButton> = ({ text, ...rest }) => {
   return (
     <MuiButton {...rest}>
-      {text}
+      <Typography>
+        {text}
+      </Typography>
     </MuiButton>
   );
 };
