@@ -8,10 +8,10 @@ interface IRoot {
 }
 
 export const Root: FC<IRoot> = ({ children }): JSX.Element => (
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      {children}
-    </ThemeProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <CssBaseline/>
+    {children}
+  </ThemeProvider>
+  // </React.StrictMode>
 )

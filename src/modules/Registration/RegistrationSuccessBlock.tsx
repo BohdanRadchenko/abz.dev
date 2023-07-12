@@ -9,7 +9,10 @@ export const RegistrationSuccessBlock = () => {
       spacing={6.25}
       alignItems="center"
     >
-      <Typography variant="title">
+      <Typography
+        variant="title"
+        align="center"
+      >
         User successfully registered
       </Typography>
       <SuccessImage/>

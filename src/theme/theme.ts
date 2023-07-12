@@ -11,6 +11,11 @@ const {
   tooltipSurfaceDefault,
   tooltipColorDefault,
   loaderColorDefault,
+  radioPrimaryColor,
+  inputBorderDefault,
+  inputBorderCritical,
+  inputLabelDefault,
+  inputLabelCritical,
 } = extendPalette;
 
 
@@ -117,7 +122,7 @@ export const theme = createTheme({
           borderRadius: '80px',
           minWidth: '100px',
           height: '34px',
-          padding: '4px',
+          padding: '4px 18px',
           flexShrink: 0,
           whiteSpace: 'nowrap',
           textTransform: 'none',
@@ -165,6 +170,89 @@ export const theme = createTheme({
       styleOverrides: {
         colorPrimary: {
           color: loaderColorDefault,
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: inputLabelDefault,
+          '&.Mui-focused': {
+            color: inputLabelDefault,
+          },
+          '&.Mui-error': {
+            color: inputLabelCritical,
+          }
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          maxHeight: 54,
+          boxSizing: 'border-box',
+          borderColor: inputBorderDefault,
+          '&:hover': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: inputBorderDefault,
+            },
+            '&.Mui-error': {
+              '.MuiOutlinedInput-notchedOutline': {
+                borderColor: inputBorderCritical,
+                borderWidth: 1,
+              },
+            },
+          },
+          '&.Mui-focused': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderWidth: 1,
+              borderColor: inputBorderDefault,
+            },
+          },
+          '&.Mui-error': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: inputBorderCritical,
+            },
+          },
+          '&.Mui-focused.Mui-error': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderWidth: 2,
+            },
+          }
+        },
+      }
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          marginTop: 'unset',
+          marginBottom: 'unset',
+        }
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiFormHelperText-root': {
+            display: 'block',
+            width: '100%',
+            position: "absolute",
+            bottom: -4,
+            transform: 'translateY(100%)',
+          }
+        }
+      }
+    },
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          borderWidth: 1,
+          '& .MuiSvgIcon-root': {
+            fontSize: 24,
+          },
+          '&.Mui-checked': {
+            color: radioPrimaryColor,
+          },
         },
       },
     },

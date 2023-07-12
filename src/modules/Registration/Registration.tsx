@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Container from "@mui/material/Container";
 import { useIsInViewport, useStores } from "hooks";
+import { EViewBlocks } from "constant";
 import { RegistrationSuccessBlock } from "./RegistrationSuccessBlock";
 import { RegistrationFormBlock } from "./RegistrationFormBlock";
 
@@ -10,16 +11,12 @@ export const Registration = () => {
       positionStore: {
         getPositions,
         positionsMap,
-        positions,
         isLoadingPositions,
       }
     }
   } = useStores();
 
   const { ref, value: isInViewport } = useIsInViewport();
-
-  console.log('positions', positions);
-
 
   useEffect(() => {
     if ( !isInViewport || isLoadingPositions || !!positionsMap.size ) return;
@@ -29,6 +26,7 @@ export const Registration = () => {
 
   return (
     <Container
+      id={EViewBlocks.REGISTRATION}
       ref={ref}
       sx={{
         mt: 17.5,
@@ -36,7 +34,7 @@ export const Registration = () => {
       }}
     >
       <RegistrationFormBlock/>
-      <RegistrationSuccessBlock/>
+      {/*<RegistrationSuccessBlock/>*/}
     </Container>
   );
 };

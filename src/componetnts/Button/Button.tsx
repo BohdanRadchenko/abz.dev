@@ -4,11 +4,15 @@ import { Typography } from "@mui/material";
 
 interface IButton extends ButtonProps {
   text?: string;
+  type?: 'button' | 'submit',
 }
 
-export const Button: FC<IButton> = ({ text, ...rest }) => {
+export const Button: FC<IButton> = ({ text, type = "button", ...rest }) => {
   return (
-    <MuiButton {...rest}>
+    <MuiButton
+      {...rest}
+      type={type}
+    >
       <Typography>
         {text}
       </Typography>

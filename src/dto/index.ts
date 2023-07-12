@@ -1,0 +1,1 @@
+export { dtoUserPosition } from './dtoUserPosition';
