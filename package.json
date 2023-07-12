@@ -30,7 +30,7 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start:script": "react-scripts start",
+    "dev": "react-scripts start",
     "start": "node app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

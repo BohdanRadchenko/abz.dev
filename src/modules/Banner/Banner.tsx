@@ -35,7 +35,7 @@ export const Banner = () => {
           srcSet={Banner768Img}
         />
         <source
-          media="(max-width: 2560px)"
+          media="(max-width: 1170px)"
           srcSet={Banner1024Img}
         />
         <img
