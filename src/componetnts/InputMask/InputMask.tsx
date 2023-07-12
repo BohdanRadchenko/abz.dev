@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, FC, useCallback } from 'react';
 import InputTextMask from "react-input-mask";
-import { Input } from "./Input";
+import { Input } from "../Input";
 import Box from "@mui/material/Box";
 import { TextFieldProps } from "@mui/material/TextField";
 

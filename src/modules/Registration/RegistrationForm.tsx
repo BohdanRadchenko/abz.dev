@@ -2,14 +2,12 @@ import React from 'react';
 import { observer } from "mobx-react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import TextField from '@mui/material/TextField';
 import Stack from "@mui/material/Stack";
 import Box from '@mui/material/Box';
-import { Button, Input, RadioGroup } from "componetnts";
+import { Button, Input, RadioGroup, InputMask, InputUpload } from "componetnts";
 import { useStores } from "hooks";
 import { dtoUserPosition } from "dto";
 import { FormStyled } from "./styled";
-import { InputMask } from "../../componetnts/InputMask";
 
 const validationSchema = yup.object({
   email: yup
@@ -35,9 +33,8 @@ export const RegistrationForm = observer(() => {
     initialValues: {
       name: "Test name",
       email: 'foobar@example.com',
-      // phone: '+380631850925',
-      phone: '',
-      position: 0,
+      phone: '+380631850925',
+      position_id: 0,
     },
     // validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -72,17 +69,17 @@ export const RegistrationForm = observer(() => {
             onBlur={formik.handleBlur}
           />
           <InputMask
-            mask="+38 (099) 999 - 99 - 99"
+            mask="+38 (099) 999 99 99"
             value={formik.values.phone}
             onChange={formik.handleChange}
             name="phone"
             label="Phone"
-            helperText="+38 (XXX) XXX - XX - XX"
+            helperText="+38 (XXX) XXX XX XX"
           />
         </Stack>
         <RadioGroup
-          id="position"
-          name="position"
+          id="position_id"
+          name="position_id"
           label="Select your position"
           options={dtoUserPosition(positions)}
           sx={{ mb: "47px" }}
@@ -90,9 +87,7 @@ export const RegistrationForm = observer(() => {
         <Stack
           spacing={6.25}
         >
-          <TextField
-            fullWidth
-          />
+          <InputUpload accept=".jpeg,.jpg"/>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               type="submit"

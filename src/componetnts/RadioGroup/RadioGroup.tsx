@@ -39,11 +39,12 @@ export const RadioGroup = <T extends number | string>({ id, name, label, options
       >
         <Stack spacing={1}>
           {options.map(({ value, label }) => (
-            <Box>
+            <Box key={value}>
               <FormControlLabel
                 key={value}
                 value={value}
                 label={label}
+                name={name}
                 control={<Radio/>}
                 sx={{
                   height: "26px",

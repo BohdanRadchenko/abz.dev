@@ -7,3 +7,5 @@ export { RadioGroup } from './RadioGroup';
 export { Radio } from './Radio';
 export type { IRadioOption } from './RadioGroup';
 export { Input } from './Input';
+export { InputMask } from './InputMask';
+export { InputUpload } from './InputUpload';

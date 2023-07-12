@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 import { extendPalette, IExtendPalette } from "./extendPalette";
 
 const {
+  black87,
   paletteBackgroundColor,
   buttonContainedPrimaryOnSurfaceDefault,
   buttonContainedPrimaryDefault,
@@ -227,6 +228,12 @@ export const theme = createTheme({
         root: {
           marginTop: 'unset',
           marginBottom: 'unset',
+          '& .MuiFormLabel-root': {
+            color: black87,
+          },
+          '& .MuiFormLabel-root.Mui-focused': {
+            color: black87,
+          }
         }
       }
     },

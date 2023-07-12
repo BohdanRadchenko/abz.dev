@@ -1,6 +1,7 @@
 const white = '#fff';
 const white60 = '#ffffff99';
 
+const black60 = '#00000099';
 const black87 = '#000000DE';
 
 const gray100 = '#F8F8F8';
@@ -34,12 +35,16 @@ const radioBorderDefault = gray500;
 const radioPrimaryColor = blue100;
 
 const inputBorderDefault = gray300;
+const inputBorderSecondary = black87;
 const inputBorderCritical = red100;
 const inputLabelDefault = gray400;
 const inputLabelCritical = red100;
+const inputLabelAccent = black87;
+const inputHelperColorDefault = black60;
 
 export interface IExtendPalette {
   white: string;
+  black87: string;
   paletteBackgroundColor: string;
 
   buttonContainedPrimaryOnSurfaceDefault: string;
@@ -58,13 +63,17 @@ export interface IExtendPalette {
   radioBorderDefault: string;
 
   inputBorderDefault: string;
+  inputBorderSecondary: string;
   inputBorderCritical: string;
   inputLabelDefault: string;
   inputLabelCritical: string;
+  inputLabelAccent: string;
+  inputHelperColorDefault: string;
 }
 
 export const extendPalette: IExtendPalette = {
   white,
+  black87,
   paletteBackgroundColor: backgroundColor,
 
   buttonContainedPrimaryOnSurfaceDefault,
@@ -83,7 +92,10 @@ export const extendPalette: IExtendPalette = {
   radioBorderDefault,
 
   inputBorderDefault,
+  inputBorderSecondary,
   inputBorderCritical,
   inputLabelDefault,
   inputLabelCritical,
+  inputLabelAccent,
+  inputHelperColorDefault,
 };
