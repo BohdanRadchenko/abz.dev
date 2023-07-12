@@ -1,6 +1,6 @@
 import { observable, computed, action, makeObservable, runInAction } from "mobx";
 import {
-  IRootStore, IUsersStore, IUser, IRequestError,
+  IRootStore, IUsersStore, IUser
 } from "interfaces";
 import { BaseStore } from "./BaseStore";
 
@@ -26,6 +26,7 @@ export class UsersStore extends BaseStore implements IUsersStore {
       isDisabledMoreButton: computed,
       getUsers: action.bound,
       getUsersNext: action.bound,
+      resetStore: action.bound,
     })
   }
 
@@ -58,8 +59,6 @@ export class UsersStore extends BaseStore implements IUsersStore {
       })
       this.setSuccess(this.asyncStatuses.getUsers);
     } catch (err) {
-      const error = err as IRequestError;
-      console.log('error', error.response?.data.message || error.message);
       return this.setError(this.asyncStatuses.getUsers)
     }
   }
@@ -71,5 +70,14 @@ export class UsersStore extends BaseStore implements IUsersStore {
   public async getUsersNext() {
     if ( this.isDisabledMoreButton ) return;
     await this.getUsersByPage(this.currentPage + 1);
+  }
+
+  public resetStore() {
+    runInAction(() => {
+      this.usersMap = new Map();
+      this.users = [];
+      this.currentPage = 1;
+      this.totalPage = null;
+    })
   }
 }

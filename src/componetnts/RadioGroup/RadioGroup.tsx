@@ -12,14 +12,25 @@ export interface IRadioOption<T> {
   label: string,
 }
 
-interface IRadioGroup<T> extends Pick<FormControlProps, 'sx'> {
+interface IRadioGroup<T> extends Pick<FormControlProps, 'sx' | 'onChange'> {
   id: string;
   name: string;
   label?: string;
   options: IRadioOption<T>[],
+  value: T,
+  defaultValue: T,
 }
 
-export const RadioGroup = <T extends number | string>({ id, name, label, options, sx }: IRadioGroup<T>) => {
+export const RadioGroup = <T extends number | string>({
+                                                        defaultValue,
+                                                        value,
+                                                        id,
+                                                        name,
+                                                        label,
+                                                        options,
+                                                        sx,
+                                                        onChange
+                                                      }: IRadioGroup<T>) => {
   return (
     <FormControl sx={sx}>
       {label && (
@@ -34,8 +45,10 @@ export const RadioGroup = <T extends number | string>({ id, name, label, options
       )}
       <MuiRadioGroup
         aria-labelledby={id}
-        defaultValue={options[0].value}
+        defaultValue={defaultValue || options[0].value}
         name={name}
+        value={value}
+        onChange={onChange}
       >
         <Stack spacing={1}>
           {options.map(({ value, label }) => (

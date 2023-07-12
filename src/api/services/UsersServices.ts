@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import api from './api';
+import api from '../api';
 import { IData, IUser } from "interfaces";
 
 interface IGetUsers extends IData {
@@ -20,7 +20,7 @@ export class UsersServices {
 
   public async getUsers(page: number): Promise<IGetUsers> {
     return await this.instance
-      .get(api.users(page))
+      .get(api.usersPagination(page), { params: { withoutAuthorization: true } })
       .then(({ data }) => data);
   }
 }

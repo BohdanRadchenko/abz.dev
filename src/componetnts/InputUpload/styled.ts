@@ -55,7 +55,7 @@ export const LabelStyle = styled(
     borderColor: `${hasError ? theme.palette.inputBorderCritical : theme.palette.inputBorderDefault}`,
     borderLeftWidth: 0,
   },
-  "& div:last-child": {
+  "& > .MuiTypography-root": {
     color: `${hasError ? theme.palette.inputLabelCritical : theme.palette.inputLabelDefault}`,
   }
 } ))

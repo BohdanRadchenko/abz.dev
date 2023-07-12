@@ -7,8 +7,6 @@ export const Input: FC<TextFieldProps> = ({ children, ...props }) => {
       {...props}
       margin="dense"
       fullWidth
-      // error
-      // helperText={"Helper text"}
     />
   );
 };

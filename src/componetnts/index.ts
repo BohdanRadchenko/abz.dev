@@ -9,3 +9,4 @@ export type { IRadioOption } from './RadioGroup';
 export { Input } from './Input';
 export { InputMask } from './InputMask';
 export { InputUpload } from './InputUpload';
+export { ToastContainer } from './Toast';

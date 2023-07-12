@@ -5,6 +5,8 @@ export type { IAsyncStore } from './IAsyncStore';
 export type { IAsyncKey } from './IAsyncStore';
 export type { IPositionStore } from './IPositionStore';
 export type { IUsersStore } from './IUsersStore';
+export type { IAuthStore } from './IAuthStore';
+export type { INotifyStore } from './INotifyStore';
 
 
 export type { IUserPosition } from './IUserPosition';

@@ -1,9 +1,10 @@
 import React from 'react';
 import { observer } from "mobx-react";
 import Typography from "@mui/material/Typography";
-import { RegistrationForm } from "./RegistrationForm";
 import Stack from "@mui/material/Stack";
-import { useStores } from "../../hooks";
+import { useStores } from "hooks";
+import { Loader } from "componetnts";
+import { RegistrationForm } from "./RegistrationForm";
 
 export const RegistrationFormBlock = observer(() => {
   const {
@@ -11,6 +12,9 @@ export const RegistrationFormBlock = observer(() => {
       positionStore: {
         isLoadingPositions,
         positionsMap
+      },
+      authStore: {
+        isLoadingPostUser,
       }
     }
   } = useStores();
@@ -21,7 +25,9 @@ export const RegistrationFormBlock = observer(() => {
       spacing={6.25}
       width="100%"
       alignItems="center"
+      position="relative"
     >
+      <Loader loading={isLoadingPostUser || isLoadingPositions}/>
       <Typography
         variant="title"
         align="center"

@@ -214,6 +214,9 @@ export const theme = createTheme({
             '.MuiOutlinedInput-notchedOutline': {
               borderColor: inputBorderCritical,
             },
+            '& label': {
+              color: inputLabelCritical,
+            }
           },
           '&.Mui-focused.Mui-error': {
             '.MuiOutlinedInput-notchedOutline': {
@@ -233,6 +236,9 @@ export const theme = createTheme({
           },
           '& .MuiFormLabel-root.Mui-focused': {
             color: black87,
+          },
+          '& .MuiFormLabel-root.Mui-focused.Mui-error': {
+            color: inputLabelCritical,
           }
         }
       }

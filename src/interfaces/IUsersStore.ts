@@ -10,4 +10,6 @@ export interface IUsersStore {
   getUsers(): Promise<void>
 
   getUsersNext(): Promise<void>
+
+  resetStore(): void
 }

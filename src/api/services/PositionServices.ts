@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import api from './api';
+import api from '../api';
 import { IData, IUserPosition } from "interfaces";
 
 interface IGetPosition extends IData {
@@ -12,7 +12,7 @@ export class PositionServices {
 
   public async getPositions(): Promise<IGetPosition> {
     return await this.instance
-      .get(api.positions)
+      .get(api.positions, { params: { withoutAuthorization: true } })
       .then(({ data }) => data);
   }
 
