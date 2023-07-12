@@ -4,5 +4,5 @@ export interface IAuthStore {
   isRegistrationCompleted: boolean;
   isLoadingPostUser: boolean;
 
-  onRegistration(values: FormikValues): Promise<void>;
+  onRegistration(values: FormikValues, onResolve?: () => void): Promise<void>;
 }

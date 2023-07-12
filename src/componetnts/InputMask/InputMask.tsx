@@ -34,6 +34,8 @@ export const InputMask: FC<IInputMaskProps & TextFieldProps> = ({ value, mask, .
         }}
       >
         <InputTextMask
+          tabIndex={-1}
+          aria-hidden="true"
           inputRef={ref => inputRef.current = ref}
           name={props.name}
           mask={mask}

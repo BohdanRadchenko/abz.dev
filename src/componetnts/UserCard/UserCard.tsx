@@ -35,7 +35,10 @@ export const UserCard: FC<IUserCard> = ({
         >
           <UserCardField value={position}/>
           <UserCardField value={email}/>
-          <UserCardField value={replacerPhoneMask(phone)}/>
+          <UserCardField
+            value={replacerPhoneMask(phone)}
+            hideTooltip
+          />
         </Stack>
       </Stack>
     </Card>

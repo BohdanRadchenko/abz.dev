@@ -209,6 +209,9 @@ export const theme = createTheme({
               borderWidth: 1,
               borderColor: inputBorderDefault,
             },
+            '& label': {
+              color: inputLabelDefault,
+            }
           },
           '&.Mui-error': {
             '.MuiOutlinedInput-notchedOutline': {
@@ -232,10 +235,10 @@ export const theme = createTheme({
           marginTop: 'unset',
           marginBottom: 'unset',
           '& .MuiFormLabel-root': {
-            color: black87,
+            color: inputLabelDefault,
           },
           '& .MuiFormLabel-root.Mui-focused': {
-            color: black87,
+            color: inputLabelDefault,
           },
           '& .MuiFormLabel-root.Mui-focused.Mui-error': {
             color: inputLabelCritical,
@@ -252,7 +255,7 @@ export const theme = createTheme({
             position: "absolute",
             bottom: -4,
             transform: 'translateY(100%)',
-          }
+          },
         }
       }
     },

@@ -12,6 +12,9 @@ export const Registration = () => {
         getPositions,
         positionsMap,
         isLoadingPositions,
+      },
+      authStore: {
+        isRegistrationCompleted
       }
     }
   } = useStores();
@@ -33,8 +36,8 @@ export const Registration = () => {
         mb: 12.5,
       }}
     >
-      <RegistrationFormBlock/>
-      {/*<RegistrationSuccessBlock/>*/}
+      {!isRegistrationCompleted && <RegistrationFormBlock/>}
+      {isRegistrationCompleted && <RegistrationSuccessBlock/>}
     </Container>
   );
 };

@@ -6,6 +6,7 @@ import FormLabel from '@mui/material/FormLabel';
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { Radio } from 'componetnts';
+import { FormLabelTitleStyle } from "./styled";
 
 export interface IRadioOption<T> {
   value: T,
@@ -34,14 +35,9 @@ export const RadioGroup = <T extends number | string>({
   return (
     <FormControl sx={sx}>
       {label && (
-        <FormLabel
-          id={id}
-          sx={{
-            mb: "11px",
-          }}
-        >
+        <FormLabelTitleStyle id={id}>
           {label}
-        </FormLabel>
+        </FormLabelTitleStyle>
       )}
       <MuiRadioGroup
         aria-labelledby={id}

@@ -4,10 +4,11 @@ import { useFormik, FormikValues } from 'formik';
 import Stack from "@mui/material/Stack";
 import Box from '@mui/material/Box';
 import { Button, Input, RadioGroup, InputMask, InputUpload } from "componetnts";
-import { useStores } from "hooks";
+import { useScrollById, useStores } from "hooks";
 import { validationSchema } from "helpers";
 import { dtoUserPosition } from "dto";
 import { FormStyled } from "./styled";
+import { EViewBlocks } from "../../constant";
 
 export const RegistrationForm = observer(() => {
   const {
@@ -20,6 +21,7 @@ export const RegistrationForm = observer(() => {
       }
     }
   } = useStores();
+  const scrollTo = useScrollById(EViewBlocks.USERS);
 
   const formik = useFormik({
     initialValues: {
@@ -33,7 +35,7 @@ export const RegistrationForm = observer(() => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values: FormikValues) => {
-      onRegistration(values);
+      onRegistration(values, () => scrollTo())
     },
   });
 

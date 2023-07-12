@@ -25,19 +25,21 @@ export class AuthStore extends BaseStore implements IAuthStore {
     return this.getAsyncStatus(this.asyncStatuses.postUser).loading;
   }
 
-  public async onRegistration(values: FormikValues) {
+  public async onRegistration(values: FormikValues, onResolve?: () => void) {
     this.setLoading(this.asyncStatuses.postUser);
     const formData = createRegisterFormData(values);
     try {
-      // const data = await this.rootStore.requester.auth.postUser(formData);
-      const data = await this.rootStore.requester.auth.postUser(new FormData());
-      console.log('data', data);
+      const { success, message } = await this.rootStore.requester.auth.postUser(formData);
+      if ( !success ) {
+        throw new Error(message)
+      }
       runInAction(() => {
+        this.setSuccess(this.asyncStatuses.postUser);
         this.isRegistrationCompleted = true;
         this.rootStore.notifyStore.success("Success!")
-        this.setSuccess(this.asyncStatuses.postUser);
         this.rootStore.usersStore.resetStore();
         this.rootStore.usersStore.getUsers();
+        onResolve && onResolve();
       })
     } catch (err) {
       const error = err as IRequestError;
@@ -46,5 +48,4 @@ export class AuthStore extends BaseStore implements IAuthStore {
       this.setError(this.asyncStatuses.postUser);
     }
   }
-
 }
