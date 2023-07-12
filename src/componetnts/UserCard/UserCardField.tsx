@@ -13,8 +13,12 @@ export const UserCardField: FC<IUserCardField> = ({ value }) => {
   }
 
   return (
-    <Tooltip title={value}>
+    <Tooltip
+      title={value}
+      placement="bottom-end"
+    >
       <Typography
+        width="100%"
         noWrap
         align="center"
       >

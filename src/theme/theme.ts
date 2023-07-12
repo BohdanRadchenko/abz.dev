@@ -8,6 +8,9 @@ const {
   buttonContainedPrimaryHovered,
   buttonContainedPrimaryOnSurfaceDisabled,
   buttonContainedPrimaryDisabled,
+  tooltipSurfaceDefault,
+  tooltipColorDefault,
+  loaderColorDefault,
 } = extendPalette;
 
 
@@ -143,6 +146,25 @@ export const theme = createTheme({
             color: buttonContainedPrimaryOnSurfaceDisabled,
             backgroundColor: buttonContainedPrimaryDisabled,
           },
+        },
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          color: tooltipColorDefault,
+          backgroundColor: tooltipSurfaceDefault,
+          padding: '4px 16px',
+          borderRadius: '4px',
+          cursor: 'default',
+          userSelect: 'none',
+        },
+      },
+    },
+    MuiCircularProgress: {
+      styleOverrides: {
+        colorPrimary: {
+          color: loaderColorDefault,
         },
       },
     },

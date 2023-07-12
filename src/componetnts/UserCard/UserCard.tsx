@@ -1,21 +1,22 @@
 import React, { FC } from 'react';
 import { Avatar, Card } from 'componetnts';
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { IUser } from 'interfaces';
 import { UserCardField } from "./UserCardField";
+import { replacerPhoneMask } from "helpers";
 
 interface IUserCard {
-  photo?: string
-  name?: string
-  mail?: string
-  phone?: string
+  user: IUser;
 }
 
 export const UserCard: FC<IUserCard> = ({
-                                          photo,
-                                          name,
-                                          mail,
-                                          phone
+                                          user: {
+                                            photo,
+                                            name,
+                                            email,
+                                            phone,
+                                            position,
+                                          }
                                         }) => {
   return (
     <Card>
@@ -27,15 +28,15 @@ export const UserCard: FC<IUserCard> = ({
           alt={name}
           src={photo}
         />
-
-        <Typography>{name}</Typography>
-
-        {( mail || phone ) && (
-          <Stack spacing={0}>
-            <UserCardField value={mail}/>
-            <UserCardField value={phone}/>
-          </Stack>
-        )}
+        <UserCardField value={name}/>
+        <Stack
+          spacing={0}
+          width="100%"
+        >
+          <UserCardField value={position}/>
+          <UserCardField value={email}/>
+          <UserCardField value={replacerPhoneMask(phone)}/>
+        </Stack>
       </Stack>
     </Card>
   );

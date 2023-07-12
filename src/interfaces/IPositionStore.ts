@@ -1,7 +1,10 @@
 import { IUserPosition } from "./IUserPosition";
 
 export interface IPositionStore {
-  positions: Map<number, IUserPosition>;
+  positionsMap: Map<number, IUserPosition>;
+  positions: IUserPosition[];
+
+  isLoadingPositions: boolean;
 
   getPositions(): Promise<void>
 }

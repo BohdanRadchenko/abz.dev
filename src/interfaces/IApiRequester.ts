@@ -1,5 +1,6 @@
-import { PositionServices } from "services";
+import { PositionServices, UsersServices } from "services";
 
 export interface IApiRequester {
-  position: PositionServices
+  position: PositionServices;
+  users: UsersServices;
 }

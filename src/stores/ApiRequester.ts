@@ -3,15 +3,17 @@ import { config } from 'config';
 import {
   IApiRequester,
 } from "interfaces";
-import { PositionServices } from "services";
+import { PositionServices, UsersServices } from "services";
 
 export class ApiRequester implements IApiRequester {
   protected instance: AxiosInstance;
-  public position: PositionServices
+  public position: PositionServices;
+  public users: UsersServices;
 
   constructor() {
     this.instance = this.createAxiosInstance();
     this.position = new PositionServices(this.instance);
+    this.users = new UsersServices(this.instance);
   }
 
   private createAxiosInstance() {
@@ -33,17 +35,10 @@ export class ApiRequester implements IApiRequester {
     //   return request;
     // });
 
-    // axiosInstance.interceptors.response.use(
-    //   response => response,
-    //   error => {
-    //     console.error(error)
-    //     const requestError = new RequestError(error);
-    //
-    //     this.requestErrorBus.publish(requestError);
-    //
-    //     return Promise.reject(error);
-    //   },
-    // );
+    axiosInstance.interceptors.response.use(
+      response => response,
+      error => Promise.reject(error),
+    );
 
     return axiosInstance;
   }
