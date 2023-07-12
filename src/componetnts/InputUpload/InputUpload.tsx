@@ -36,7 +36,7 @@ export const InputUpload: FC<InputUploadProps> = ({
     onChange(file);
 
     const url = URL.createObjectURL(file);
-    const img = new Image;
+    const img = new Image();
 
     img.onload = () => {
       if ( img.width < MIN_UPLOAD_IMG_WIDTH || img.height < MIN_UPLOAD_IMG_HEIGHT ) {
