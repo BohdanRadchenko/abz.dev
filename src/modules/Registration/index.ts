@@ -1,1 +1,1 @@
-export { Registration } from './Registration';
+export { Registration, Registration as default } from './Registration';

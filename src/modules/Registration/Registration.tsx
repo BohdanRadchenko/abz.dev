@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy } from 'react';
 import Container from "@mui/material/Container";
 import { useIsInViewport, useStores } from "hooks";
 import { EViewBlocks } from "constant";
-import { RegistrationSuccessBlock } from "./RegistrationSuccessBlock";
 import { RegistrationFormBlock } from "./RegistrationFormBlock";
+
+const RegistrationSuccessBlockLazy = lazy(() => import('./RegistrationSuccessBlock'));
 
 export const Registration = () => {
   const {
@@ -37,7 +38,7 @@ export const Registration = () => {
       }}
     >
       {!isRegistrationCompleted && <RegistrationFormBlock/>}
-      {isRegistrationCompleted && <RegistrationSuccessBlock/>}
+      {isRegistrationCompleted && <RegistrationSuccessBlockLazy/>}
     </Container>
   );
 };

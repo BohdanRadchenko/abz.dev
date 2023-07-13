@@ -19,3 +19,5 @@ export const RegistrationSuccessBlock = () => {
     </Stack>
   )
 };
+
+export default RegistrationSuccessBlock
